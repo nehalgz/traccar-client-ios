@@ -110,7 +110,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PositionProviderDelegate 
 
         let userDefaults = UserDefaults.standard
         
-        if let request = ProtocolFormatter.formatPostion(position, url: userDefaults.string(forKey: "server_url_preference")!, alarm: "sos") {
+        if let request = ProtocolFormatter.formatPostion(position, url: "http://demo.traccar.org:5055", alarm: "sos") {
             RequestManager.sendRequest(request, completionHandler: {(_ success: Bool) -> Void in
                 if success {
                     self.showToast(message: NSLocalizedString("Send successfully", comment: ""))
@@ -165,7 +165,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, PositionProviderDelegate 
                 urlComponents.port = 5055
             }
             
-            userDefaults.set(urlComponents.string, forKey: "server_url_preference")
+           // userDefaults.set(urlComponents.string, forKey: "http://demo.traccar.org:5055")
             
             userDefaults.removeObject(forKey: "server_port_preference")
             userDefaults.removeObject(forKey: "server_address_preference")

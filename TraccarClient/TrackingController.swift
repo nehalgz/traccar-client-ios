@@ -36,8 +36,8 @@ class TrackingController: NSObject, PositionProviderDelegate, NetworkManagerDele
     
     override init() {
         online = networkManager.online()
-        url = userDefaults.string(forKey: "server_url_preference")!
-        buffer = userDefaults.bool(forKey: "buffer_preference")
+        url = "http://demo.traccar.org:5055"
+        buffer = true
 
         super.init()
 
